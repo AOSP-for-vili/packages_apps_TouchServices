@@ -1,0 +1,2 @@
+# Touchscreen
+/sys/devices/virtual/touch/touch_dev/bump_sample_rate u:object_r:vendor_sysfs_touch:s0

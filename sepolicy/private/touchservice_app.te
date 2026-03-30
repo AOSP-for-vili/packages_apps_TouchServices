@@ -1,0 +1,44 @@
+app_domain(touchservice_app)
+
+binder_use(touchservice_app)
+
+allow touchservice_app {
+  activity_service
+  activity_task_service
+  app_api_service
+  audioserver_service
+  audio_service
+  autofill_service
+  batteryproperties_service
+  batterystats_service
+  cameraserver_service
+  content_capture_service
+  device_state_service
+  drmserver_service
+  game_service
+  gpu_service
+  hint_service
+  media_session_service
+  mediaextractor_service
+  mediametrics_service
+  mediaserver_service
+  netstats_service
+  permission_checker_service
+  sensorservice_service
+  statusbar_service
+  surfaceflinger_service
+  thermal_service
+  trust_service
+  voiceinteraction_service
+  vendor_perf_service
+  vibrator_manager_service
+}:service_manager find;
+
+allow touchservice_app system_app_data_file:dir create_dir_perms;
+allow touchservice_app system_app_data_file:{
+  file
+  lnk_file
+} create_file_perms;
+
+binder_call(touchservice_app, default_android_hwservice)
+binder_call(touchservice_app, gpuservice)
